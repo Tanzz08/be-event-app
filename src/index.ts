@@ -14,6 +14,13 @@ async function init() {
 
     const PORT = 3001;
 
+    app.get("/", (req, res) => {
+      res.status(200).json({
+        message: "Server is running",
+        data: null,
+      });
+    });
+
     // middleware untuk path url dengan pola /api maka akan mengarah ke variabel router
     app.use("/api", router);
 
