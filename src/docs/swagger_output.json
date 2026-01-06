@@ -177,23 +177,23 @@
         "properties": {
           "fullName": {
             "type": "string",
-            "example": "member2025"
+            "example": "member2026"
           },
           "username": {
             "type": "string",
-            "example": "member2025"
+            "example": "member2026"
           },
           "email": {
             "type": "string",
-            "example": "member2025@yopmail.com"
+            "example": "member2026@yopmail.com"
           },
           "password": {
             "type": "string",
-            "example": "Member2025!"
+            "example": "Member2026!"
           },
           "confirmPassword": {
             "type": "string",
-            "example": "Member2025!"
+            "example": "Member2026!"
           }
         },
         "xml": {

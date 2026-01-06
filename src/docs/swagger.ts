@@ -29,11 +29,11 @@ const doc = {
         password: "bustanul_089",
       },
       RegisterRequest: {
-        fullName: "member2025",
-        username: "member2025",
-        email: "member2025@yopmail.com",
-        password: "Member2025!",
-        confirmPassword: "Member2025!",
+        fullName: "member2026",
+        username: "member2026",
+        email: "member2026@yopmail.com",
+        password: "Member2026!",
+        confirmPassword: "Member2026!",
       },
       ActivationRequest: {
         code: "abdef"
