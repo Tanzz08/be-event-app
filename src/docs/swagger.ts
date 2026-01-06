@@ -12,7 +12,7 @@ const doc = {
       description: "Local Server",
     },
     {
-      url: "https://be-event-app-one.vercel.app/",
+      url: "https://be-event-app-one.vercel.app/api",
       description: "Deploy Server",
     },
   ],
