@@ -38,6 +38,28 @@ const doc = {
       ActivationRequest: {
         code: "abdef",
       },
+      CreateCategoryRequest: {
+        name: "",
+        description: "",
+        icon: "",
+      },
+      CreateEventsRequest: {
+        name: "",
+        banner: "fileUrl",
+        category: "categiry objectID",
+        description: "",
+        startDate: "yyyy-mm-dd hh:mm:ss",
+        endDate: "2024-12-16 13:45:00",
+        location: {
+          region: "region id",
+          coordinates: [0, 0],
+        },
+        isOnline: false,
+        isFeatured: false,
+      },
+      RemoveMediaRequest: {
+        fileUrl: "",
+      },
     },
   },
 };
