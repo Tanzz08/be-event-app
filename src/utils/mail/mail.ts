@@ -20,8 +20,6 @@ const transporter = nodemailer.createTransport({
     pass: EMAIL_SMTP_PASS,
   },
   requireTLS: true,
-  logger: true,
-  debug: true,
 });
 // const transporter = nodemailer.createTransport({
 //   service: "gmail",
