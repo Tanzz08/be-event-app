@@ -36,8 +36,8 @@ const doc = {
         confirmPassword: "Member2026!",
       },
       ActivationRequest: {
-        code: "abdef"
-      }
+        code: "abdef",
+      },
     },
   },
 };

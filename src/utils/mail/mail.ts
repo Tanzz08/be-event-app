@@ -11,25 +11,26 @@ import {
 } from "../env";
 
 // untuk menyimpan konfigurasi mailer
+const transporter = nodemailer.createTransport({
+  host: EMAIL_SMTP_HOST,
+  port: EMAIL_SMTP_PORT,
+  secure: EMAIL_SMTP_SECURE,
+  auth: {
+    user: EMAIL_SMTP_USER,
+    pass: EMAIL_SMTP_PASS,
+  },
+  requireTLS: true,
+  logger: true,
+  debug: true,
+});
 // const transporter = nodemailer.createTransport({
-//   service: EMAIL_SMTP_SERVICE_NAME,
-//   host: EMAIL_SMTP_HOST,
-//   port: EMAIL_SMTP_PORT,
-//   secure: EMAIL_SMTP_SECURE,
+//   service: "gmail",
 //   auth: {
-//     user: EMAIL_SMTP_USER,
+//     user: "bustanuldarking23@gmail.com",
 //     pass: EMAIL_SMTP_PASS,
 //   },
 //   requireTLS: true,
 // });
-const transporter = nodemailer.createTransport({
-  service: "gmail",
-  auth: {
-    user: "bustanuldarking23@gmail.com",
-    pass: EMAIL_SMTP_PASS,
-  },
-  requireTLS: true,
-});
 
 export interface ISendMail {
   from: string;
