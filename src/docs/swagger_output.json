@@ -711,11 +711,11 @@
         "properties": {
           "identifier": {
             "type": "string",
-            "example": "Tanzz"
+            "example": "bustanuldarking23@gmail.com"
           },
           "password": {
             "type": "string",
-            "example": "bustanul_089"
+            "example": "Bustanul_08"
           }
         },
         "xml": {
@@ -825,6 +825,10 @@
                 "items": {
                   "type": "number"
                 }
+              },
+              "address": {
+                "type": "string",
+                "example": ""
               }
             }
           },
@@ -833,6 +837,10 @@
             "example": false
           },
           "isFeatured": {
+            "type": "boolean",
+            "example": false
+          },
+          "isPublish": {
             "type": "boolean",
             "example": false
           }
