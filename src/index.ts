@@ -8,7 +8,7 @@ import cors from "cors";
 async function init() {
   try {
     const PORT = 3001;
-    // memastikan db terkonek
+
     const result = await db();
     console.log("database status: ", result);
 
