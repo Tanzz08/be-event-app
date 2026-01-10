@@ -58,7 +58,7 @@ export default {
   async findOne(req: IReqUser, res: Response) {
     try {
       const { id } = req.params;
-      const result = TicketModel.findById(id);
+      const result = await TicketModel.findById(id);
       response.success(res, result, "success find one ticket");
     } catch (error) {
       response.error(res, error, "failed to find one ticket");
