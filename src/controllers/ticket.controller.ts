@@ -80,7 +80,7 @@ export default {
       if (!isValidObjectId(id)) {
         return response.notfound(res, "failed to update a ticket");
       }
-      const result = TicketModel.findByIdAndUpdate(id, req.body, {
+      const result = await TicketModel.findByIdAndUpdate(id, req.body, {
         new: true,
       });
       response.success(res, result, "success to update a ticket");
