@@ -44,7 +44,7 @@ const TicketSchema = new Schema<Ticket>({
  {
     timestamps: true,
 }
-);
+).index({ price: "text" });
 
 const TicketModel = mongoose.model(TICKET_MODEL_NAME, TicketSchema);
 export default TicketModel;

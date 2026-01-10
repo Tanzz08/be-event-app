@@ -9,6 +9,7 @@ import categoryController from "../controllers/category.controller";
 import regionController from "../controllers/region.controller";
 import eventController from "../controllers/event.controller";
 import ticketController from "../controllers/ticket.controller";
+import bannerController from "../controllers/banner.controller";
 
 const router = express.Router();
 
@@ -42,12 +43,106 @@ router.post(
   /* #swagger.tags = ['Auth'] */
 );
 
-router.post("/tickets", [authMiddleware, aclMiddleware([ROLES.ADMIN])], ticketController.create);
-router.get("/tickets", ticketController.findall);
-router.get("/tickets/:id", ticketController.findOne);
-router.put("/tickets/:id", [authMiddleware, aclMiddleware([ROLES.ADMIN])], ticketController.update);
-router.delete("/tickets/:id", [authMiddleware, aclMiddleware([ROLES.ADMIN])], ticketController.remove);
-router.get("/tickets/:eventId/events", ticketController.findAllByEvent);
+router.post(
+  "/tickets",
+  [authMiddleware, aclMiddleware([ROLES.ADMIN])],
+  ticketController.create
+  /* #swagger.tags = ['Tickets']
+    #swagger.security = [{ "bearerAuth": [] }]
+    #swagger.requestBody = {
+      required: true,
+      schema: { $ref: "#/components/schemas/CreateTicketRequest" }
+    }
+  */
+);
+router.get(
+  "/tickets",
+  ticketController.findall
+  /* 
+  #swagger.tags = ['Tickets']
+  */
+);
+router.get(
+  "/tickets/:id",
+  ticketController.findOne
+  /* 
+  #swagger.tags = ['Tickets']
+  */
+);
+router.put(
+  "/tickets/:id",
+  [authMiddleware, aclMiddleware([ROLES.ADMIN])],
+  ticketController.update
+  /* #swagger.tags = ['Tickets']
+    #swagger.security = [{ "bearerAuth": [] }]
+    #swagger.requestBody = {
+      required: true,
+      schema: { $ref: "#/components/schemas/CreateTicketRequest" }
+    }
+  */
+);
+router.delete(
+  "/tickets/:id",
+  [authMiddleware, aclMiddleware([ROLES.ADMIN])],
+  ticketController.remove
+  /* #swagger.tags = ['Tickets']
+    #swagger.security = [{ "bearerAuth": [] }]
+    
+  */
+);
+router.get(
+  "/tickets/:eventId/events",
+  ticketController.findAllByEvent
+  /* #swagger.tags = ['Tickets'] */
+);
+
+router.post(
+  "/banners",
+  [authMiddleware, aclMiddleware([ROLES.ADMIN])],
+  bannerController.create
+  /* #swagger.tags = ['Banners']
+    #swagger.security = [{ "bearerAuth": [] }]
+    #swagger.requestBody = {
+      required: true,
+      schema: { $ref: "#/components/schemas/CreateBannerRequest" }
+    }
+  */
+);
+router.get(
+  "/banners",
+  bannerController.findAll
+  /* 
+  #swagger.tags = ['Banners']
+  */
+);
+router.get(
+  "/banners/:id",
+  bannerController.findOne
+  /* 
+  #swagger.tags = ['Banners']
+  */
+);
+router.put(
+  "/banners/:id",
+  [authMiddleware, aclMiddleware([ROLES.ADMIN])],
+  bannerController.update
+  /* #swagger.tags = ['Banners']
+    #swagger.security = [{ "bearerAuth": [] }]
+    #swagger.requestBody = {
+      required: true,
+      schema: { $ref: "#/components/schemas/CreateBannerRequest" }
+    }
+  */
+);
+router.delete(
+  "/banners/:id",
+  [authMiddleware, aclMiddleware([ROLES.ADMIN])],
+  bannerController.remove
+  /* #swagger.tags = ['Banners']
+    #swagger.security = [{ "bearerAuth": [] }]
+    
+  */
+);
 
 // ==============================
 // CATEGORY
