@@ -2,7 +2,7 @@ import { Response } from "express";
 import { IPaginationQuery, IReqUser } from "../utils/interfaces";
 import response from "../utils/response";
 import BannerModel, { bannerDAO, TypeBanner } from "../models/banner.model";
-import { FilterQuery } from "mongoose";
+import { FilterQuery, isValidObjectId } from "mongoose";
 
 export default {
   async create(req: IReqUser, res: Response) {
@@ -47,7 +47,7 @@ export default {
           current: page,
           totalPages: Math.ceil(count / limit),
         },
-        "success find all banners"
+        "success to find all banners"
       );
     } catch (error) {
       response.error(res, error, "failed to find all banners");
@@ -56,13 +56,16 @@ export default {
   async findOne(req: IReqUser, res: Response) {
     try {
       const { id } = req.params;
+      if (!isValidObjectId(id)) {
+        return response.notfound(res, "failed to find one a banner");
+      }
       const result = await BannerModel.findById(id);
 
-        if (!result) {
-            return response.notfound(res, "failed find one a banner")
-        }
+      if (!result) {
+        return response.notfound(res, "failed to find one a banner");
+      }
 
-      response.success(res, result, "success find one banner");
+      response.success(res, result, "success to find one banner");
     } catch (error) {
       response.error(res, error, "failed to find one a banner");
     }
@@ -70,10 +73,13 @@ export default {
   async update(req: IReqUser, res: Response) {
     try {
       const { id } = req.params;
+      if (!isValidObjectId(id)) {
+        return response.notfound(res, "failed to update a banner");
+      }
       const result = await BannerModel.findByIdAndUpdate(id, req.body, {
         new: true,
       });
-      response.success(res, result, "success update a banner");
+      response.success(res, result, "success to update a banner");
     } catch (error) {
       response.error(res, error, "failed to update a banner");
     }
@@ -81,10 +87,13 @@ export default {
   async remove(req: IReqUser, res: Response) {
     try {
       const { id } = req.params;
+      if (!isValidObjectId(id)) {
+        return response.notfound(res, "failed to remove a banner");
+      }
       const result = await BannerModel.findByIdAndDelete(id, {
         new: true,
       });
-      response.success(res, result, "success remove a banner");
+      response.success(res, result, "success to remove a banner");
     } catch (error) {
       response.error(res, error, "failed to remove a banner");
     }
