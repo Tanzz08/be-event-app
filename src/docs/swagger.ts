@@ -25,8 +25,8 @@ const doc = {
     },
     schemas: {
       LoginRequest: {
-        identifier: "Tanzz",
-        password: "bustanul_089",
+        identifier: "bustanuldarking23@gmail.com",
+        password: "Bustanul_08",
       },
       RegisterRequest: {
         fullName: "member2026",
@@ -53,9 +53,11 @@ const doc = {
         location: {
           region: "region id",
           coordinates: [0, 0],
+          address: "",
         },
         isOnline: false,
         isFeatured: false,
+        isPublish: false,
       },
       RemoveMediaRequest: {
         fileUrl: "",
