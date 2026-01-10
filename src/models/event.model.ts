@@ -1,3 +1,4 @@
+import { name } from "ejs";
 import mongoose, { ObjectId } from "mongoose";
 import * as Yup from "yup";
 
@@ -101,7 +102,7 @@ const EventSchema = new Schema<Event>(
   {
     timestamps: true,
   }
-);
+).index({ name: "text"});
 
 EventSchema.pre("save", function () {
   if (!this.slug) {
