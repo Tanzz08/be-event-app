@@ -10,6 +10,7 @@ import regionController from "../controllers/region.controller";
 import eventController from "../controllers/event.controller";
 import ticketController from "../controllers/ticket.controller";
 import bannerController from "../controllers/banner.controller";
+import orderController from "../controllers/order.controller";
 
 const router = express.Router();
 
@@ -353,6 +354,57 @@ router.get(
   "/events/:slug/slug",
   eventController.findOneBySlug
   /* #swagger.tags = ['Events'] */
+);
+
+// ==============================
+// ORDER
+// ==============================
+
+router.post(
+  "/orders",
+  [authMiddleware, aclMiddleware([ROLES.MEMBER])],
+  orderController.create
+);
+router.get(
+  "/orders",
+  [authMiddleware, aclMiddleware([ROLES.ADMIN])],
+  orderController.findAll
+);
+router.get(
+  "/orders/:orderId",
+  [authMiddleware, aclMiddleware([ROLES.ADMIN, ROLES.MEMBER])],
+  orderController.findOne
+);
+router.put(
+  "/orders/:orderId/completed",
+  [authMiddleware, aclMiddleware([ROLES.MEMBER])],
+  orderController.canceled
+);
+router.put(
+  "/orders/:orderId/cancelled",
+  [authMiddleware, aclMiddleware([ROLES.ADMIN])],
+  orderController.canceled
+);
+router.put(
+  "/orders/:orderId/pending",
+  [authMiddleware, aclMiddleware([ROLES.ADMIN])],
+  orderController.pending
+);
+router.get(
+  "/orders-history",
+  [authMiddleware, aclMiddleware([ROLES.MEMBER])],
+  orderController.findAllByMember
+);
+router.delete(
+  "orders/:orderId",
+  [authMiddleware, aclMiddleware([ROLES.ADMIN])],
+  orderController.remove
+  /**
+   #swagger.tags = ['order']
+   #swagger.security = [{
+    "bearerAuth": ""
+   }]
+   */
 );
 
 // ==============================
